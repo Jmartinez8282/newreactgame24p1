@@ -10,12 +10,14 @@ import {
 import useData from "../hooks/useData";
 import { Genre } from "../hooks/useGeneres";
 import getCroppedImageUrl from "../services/imageUrl";
+import { color } from "framer-motion";
 
 interface Props {
   onSelectGenre: (genre: Genre) => void;
+  selectedGenre: Genre | null
 }
 
-const GenereList = ({ onSelectGenre }: Props) => {
+const GenereList = ({ onSelectGenre,selectedGenre }: Props) => {
   const { data, isLoading, error } = useData<Genre>("/genres");
   return (
     <>
@@ -34,6 +36,7 @@ const GenereList = ({ onSelectGenre }: Props) => {
                 fontSize={"lg"}
                 variant={"link"}
                 onClick={() => onSelectGenre(genre)}
+                color={genre.id === selectedGenre?.id ? 'blue.500' : 'normal'}
               >
                 {genre.name}
               </Button>
