@@ -1,6 +1,7 @@
 import {
   Button,
   HStack,
+  Heading,
   Image,
   List,
   ListItem,
@@ -10,7 +11,7 @@ import {
 import useData from "../hooks/useData";
 import { Genre } from "../hooks/useGeneres";
 import getCroppedImageUrl from "../services/imageUrl";
-import { color } from "framer-motion";
+
 
 interface Props {
   onSelectGenre: (genre: Genre) => void;
@@ -21,6 +22,7 @@ const GenereList = ({ onSelectGenre,selectedGenre }: Props) => {
   const { data, isLoading, error } = useData<Genre>("/genres");
   return (
     <>
+    <Heading fontSize={'2xl'} paddingBottom={5}>Genres</Heading>
       <List>
         {isLoading && <Spinner />}
         {error && <Text>{error}</Text>}
@@ -30,10 +32,12 @@ const GenereList = ({ onSelectGenre,selectedGenre }: Props) => {
               <Image
                 boxSize={8}
                 borderRadius={4}
+                objectFit={'cover'}
                 src={getCroppedImageUrl(genre.image_background)}
               />
               <Button
-                fontSize={"lg"}
+              fontWeight={genre.id === selectedGenre?.id ? 'bold' : 'normal'}
+                fontSize={"100%"}
                 variant={"link"}
                 onClick={() => onSelectGenre(genre)}
                 color={genre.id === selectedGenre?.id ? 'blue.500' : 'normal'}
