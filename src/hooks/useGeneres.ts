@@ -7,11 +7,7 @@ export interface Genre {
     name: string;
     image_background: string
 
-    
-
 }
-
-
 
 const useGenres = () => useQuery<FetchResponse<Genre>,Error>({
     queryKey: ['genres'],
