@@ -3,12 +3,6 @@ import apiClient from "../services/apiClient";
 import {  AxiosRequestConfig, CanceledError } from "axios";
 
 
-///interface to help us define the shape of our data
-export interface FetchResponse<T> {
-    count: number
-    results: T[]
-
-}
 
 const useData = <T>(endpoint: string,requestConfig?:AxiosRequestConfig,deps?:any) => {
     //WE need useState to help us render update our UI with our games

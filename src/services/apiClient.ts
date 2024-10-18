@@ -1,5 +1,13 @@
 import axios from "axios";
 
+///interface to help us define the shape of our data
+export interface FetchResponse<T> {
+    count: number
+    results: T[]
+
+}
+
+
 export default axios.create({
     baseURL: 'https://api.rawg.io/api',
     params: {
