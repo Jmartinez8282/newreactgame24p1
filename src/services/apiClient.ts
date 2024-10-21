@@ -2,8 +2,9 @@ import axios, { AxiosRequestConfig } from "axios";
 
 ///interface to help us define the shape of our data
 export interface FetchResponse<T> {
-    count: number
-    results: T[]
+    count: number;
+    next:string| null;
+    results: T[];
 
 }
 
