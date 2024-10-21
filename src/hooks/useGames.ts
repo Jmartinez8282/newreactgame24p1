@@ -24,8 +24,9 @@ const useGames = (gameQuery: GameQuery) =>
                     params: { genres: gameQuery.genre?.id, parent_platforms: gameQuery.platform?.id, ordering: gameQuery.sortOrder, search: gameQuery.searchText,page: pageParam }
                 }),
                 getNextPageParam: (lastPage,allPages) => {
-                    return allPages.length + 1;
-                }
+                    return lastPage.next ?  allPages.length + 1: undefined;
+                },
+                staleTime: 24 * 60 * 60 * 1000 //24hrs
     })
 
 export default useGames;
