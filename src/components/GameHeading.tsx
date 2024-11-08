@@ -25,7 +25,7 @@ const GameHeading = () => {
 
   return (
   <>
-    <Heading marginY={5} fontSize={'5xl'} as={'h1'}>
+    <Heading marginY={4} fontSize={'5xl'} as={'h1'}>
     {heading}
     </Heading>
   </>
