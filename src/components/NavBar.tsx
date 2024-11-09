@@ -11,7 +11,7 @@ const NavBar = () => {
     <>
         <HStack>
           <Link to={'/'}>
-            <Image marginLeft={10} marginRight={3}  src={logo} boxSize='60px'/>
+            <Image objectFit={'cover'} src={logo} boxSize='60px'/>
           
           </Link>
             <SearchInput />

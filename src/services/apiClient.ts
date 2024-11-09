@@ -12,7 +12,7 @@ export interface FetchResponse<T> {
 const axiosInstance = axios.create({
     baseURL: 'https://api.rawg.io/api',
     params: {
-        key:'40f943686ffc4c08903d4a961ce35931'
+        key:'2528ce5fe56b4223bd96cb1aec492323'
     }
 })
 
@@ -23,14 +23,10 @@ class APIClient<T> {
         this.endpoint = endpoint
     }
 
-    getAll(config: AxiosRequestConfig) {
+    getAll = (config: AxiosRequestConfig) => {
         return axiosInstance
             .get<FetchResponse<T>>(this.endpoint,config)
-            .then(res => {
-                    console.log(res);
-                return res.data    
-
-            })
+            .then((res) => res.data)
     };
 
 
